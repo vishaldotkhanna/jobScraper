@@ -18,10 +18,18 @@ public abstract class Scraper {
 	private String query = null;
 	private String location = null;
 	private WebDriver driver;
-	protected List<SearchResult> results;
+	private List<SearchResult> results;
 		
 	public List<SearchResult> getResults() {
 		return results;
+	}
+	
+	public void addToResults(SearchResult item) {
+		this.results.add(item);
+	}
+	
+	public int getResultsSize() {
+		return this.results.size();
 	}
 
 	public String getQuery() {
@@ -40,7 +48,7 @@ public abstract class Scraper {
 		this.query = query;
 		this.location = location;
 		this.driver = new ChromeDriver();
-		results = new ArrayList<SearchResult>();
+		this.results = new ArrayList<SearchResult>();
 	}
 		
 	public void scrape() {

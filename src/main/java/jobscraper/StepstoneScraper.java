@@ -61,7 +61,7 @@ public class StepstoneScraper extends Scraper {
 															 jobLink.getAttribute("href"), 
 															 employerName.getText(),
 															 employerLocation.getText());
-				this.results.add(searchResult);
+				this.addToResults(searchResult);
 				System.out.println("Parsed searchResult: " + searchResult.toString());
 			} catch(NoSuchElementException e) {}
 		}

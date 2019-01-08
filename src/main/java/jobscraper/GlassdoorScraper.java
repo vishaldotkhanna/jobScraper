@@ -46,7 +46,7 @@ public class GlassdoorScraper extends Scraper {
 	protected void parsePage() {		
 		List<WebElement> pageResults = this.getListByXpath("results");
 		List<WebElement> employerDetails = this.getListByXpath("employerDetails");
-		int initialLen = this.results.size();
+		int initialLen = this.getResultsSize();
 		
 		// The last result is always empty
 		for(int i = 0; i < pageResults.size() - 1; i++) {
@@ -62,12 +62,12 @@ public class GlassdoorScraper extends Scraper {
 															 jobLink.getAttribute("href"), 
 															 GlassdoorScraper.formatStr(employerDetail.getText()), 
 															 employerLocation.getText());
-				this.results.add(searchResult);	
+				this.addToResults(searchResult);
 				System.out.println("Parsed searchResult: " + searchResult.toString());
 			} catch(NoSuchElementException e) {}			
 		}
 		
-		System.out.println("Parsed " + (this.results.size() - initialLen) + " results");
+		System.out.println("Parsed " + (this.getResultsSize() - initialLen) + " results");
 	}
 	
 	protected static String formatStr(String s) {		
