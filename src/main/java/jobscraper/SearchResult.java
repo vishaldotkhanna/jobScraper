@@ -1,7 +1,5 @@
 package jobscraper;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class SearchResult {
 	
@@ -18,13 +16,7 @@ public class SearchResult {
 		return "(title: " + this.title + ", employerName: " + this.employerName + ", employerLocation: " + this.employerLocation + ")";
 	}
 	
-	public List<String> getRecord() {
-		List<String> record = new ArrayList<String>();
-		record.add(this.title);		
-		record.add(this.employerName);
-		record.add(this.employerLocation);
-		record.add(this.url);
-		
-		return record;
+	public String[] getRecord() {
+		return new String[] {this.title, this.employerName, this.employerLocation, this.url};
 	}
 }
