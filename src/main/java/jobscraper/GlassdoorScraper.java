@@ -59,9 +59,9 @@ public class GlassdoorScraper extends Scraper {
 				WebElement jobLink = result.findElement(By.xpath(jobXpath));	
 				WebElement employerLocation = employerDetail.findElement(By.xpath(employerLocationXpath));
 				SearchResult searchResult = new SearchResult(jobLink.getText(), 
-															 jobLink.getAttribute("href"), 
-															 GlassdoorScraper.formatStr(employerDetail.getText()), 
-															 employerLocation.getText());
+									     jobLink.getAttribute("href"), 
+									     GlassdoorScraper.formatStr(employerDetail.getText()), 
+									     employerLocation.getText());
 				this.addToResults(searchResult);
 				System.out.println("Parsed searchResult: " + searchResult.toString());
 			} catch(NoSuchElementException e) {}			
